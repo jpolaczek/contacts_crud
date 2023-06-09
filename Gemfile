@@ -49,6 +49,8 @@ gem 'haml-rails'
 gem 'html2haml'
 gem 'validates_phone_number'
 gem 'factory_bot_rails'
+gem 'simple_form'
+gem 'bootstrap-icons-helper'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
@@ -76,4 +78,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'rails-controller-testing'
 end

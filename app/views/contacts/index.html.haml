@@ -1,0 +1,17 @@
+.row
+    .col 
+        %h3= 'Contacts'
+    .col
+        .text-end
+            = link_to 'Add contact', new_contact_path, class: 'btn btn-primary'
+
+- @contacts.each do |contact|
+    .card 
+        .card-body 
+            %h4= contact.full_name
+            %p
+                = bootstrap_icon "phone-fill", width: 20, height: 20
+                = contact.phone
+            = link_to 'Edit', edit_contact_path(contact), class: 'btn btn-primary'
+            = link_to 'Delete', contact_path(contact), data: { 'turbo-method': :delete, 'turbo-confirm': 'Are you sure?' }, class: 'btn btn-danger'
+

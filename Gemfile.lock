@@ -77,6 +77,11 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.7, < 3)
       sassc-rails (>= 2.0.0)
+    bootstrap-icons (1.0.13)
+      nokogiri (~> 1)
+    bootstrap-icons-helper (2.0.1)
+      bootstrap-icons (~> 1)
+      rails (>= 6)
     builder (3.2.4)
     capybara (3.39.0)
       addressable
@@ -183,6 +188,10 @@ GEM
       activesupport (= 7.0.4.3)
       bundler (>= 1.15.0)
       railties (= 7.0.4.3)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -235,6 +244,9 @@ GEM
     sexp_processor (4.16.1)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
+    simple_form (5.2.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -279,6 +291,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bootstrap
+  bootstrap-icons-helper
   capybara
   debug
   factory_bot_rails
@@ -289,10 +302,12 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
+  rails-controller-testing
   rspec-rails (~> 6.0.0)
   sassc-rails
   selenium-webdriver
   shoulda-matchers (~> 5.0)
+  simple_form
   sprockets-rails
   stimulus-rails
   turbo-rails
