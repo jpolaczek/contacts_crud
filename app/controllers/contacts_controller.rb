@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
     before_action :find_contact, only: [:edit, :update, :destroy]
 
     def index
-        @contacts = Contact.all
+        @contacts = Contact.search_by_last_name(params[:search])
     end
 
     def new

@@ -21,4 +21,21 @@ RSpec.describe Contact, type: :model do
 
         it { is_expected.to eq contact.first_name + ' ' + contact.last_name }
     end
+
+    describe '.search_by_last_name' do
+        subject { described_class.search_by_last_name(search) }
+
+        let(:search) { 'John' }
+        let(:last_name) { 'Johnson' }
+        let!(:contact) { FactoryBot.create :contact, last_name: last_name }
+        let!(:contact_2) { FactoryBot.create :contact }
+
+        it { is_expected.to eq([contact]) }
+
+        context 'when search blank' do
+            let(:search) { '' }
+
+            it { is_expected.to eq Contact.all }
+        end
+    end
 end

@@ -1,6 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe 'Contacts CRUD', type: :request do
+    describe '#index' do      
+        let!(:contact) { FactoryBot.create :contact }
+        let!(:contact_1) { FactoryBot.create :contact, last_name: "Johnson" }
+        let(:query) { 'John' }
+        subject { get '/contacts/', params: params }
+
+        let(:params) { { search: query } }
+
+        it 'searches for records' do
+            expect(Contact).to receive(:search_by_last_name).with(query).and_call_original
+            subject
+            expect(response).to render_template("index")
+        end
+
+        context 'when seach param blank' do
+            let(:query)      { '' }
+
+            it 'renders all records' do
+                expect(Contact).to receive(:search_by_last_name).with(query).and_call_original
+                subject
+                expect(response).to render_template("index")
+            end
+        end
+    end
     describe '#create' do        
         subject { post '/contacts', params: params }
 

@@ -4,6 +4,9 @@
     .col
         .text-end
             = link_to 'Add contact', new_contact_path, class: 'btn btn-primary'
+= simple_form_for '', url: contacts_path, method: :get, html: { class: 'form-inline' } do |f|
+    = f.input :search, label: false, placeholder: 'search by last_name', input_html: {value: params[:search] }
+    = f.submit "Search", class: "btn btn-primary"
 
 - @contacts.each do |contact|
     .card 
